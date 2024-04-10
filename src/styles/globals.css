@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+  scroll-padding: 14rem;
+}
+
+.orange-filter {
+  filter: invert(53%) sepia(91%) saturate(4575%) hue-rotate(360deg)
+    brightness(100%) contrast(107%);
+}
+
+.menu-layout-grid {
+  display: grid;
+  grid-template-columns: 25ch 1fr;
+  grid-template-rows: 12rem 1fr;
+}
