@@ -8,12 +8,6 @@ export default {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
-      gridTemplateColumns: {
-        layout: "23ch, 1fr ",
-      },
-      gridTemplateRows: {
-        layout: "fit-content 1fr",
-      },
       colors: {
         orange: {
           550: "#ff5a00",

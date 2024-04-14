@@ -1,38 +1,28 @@
-import Link from "next/link";
 import React from "react";
+import MenuCategorySection from "~/components/MenuCategorySection";
 
 function Page() {
+  const menu = [
+    { name: "Coffee and Espresso", numOfItems: 4 },
+    { name: "Blended", numOfItems: 5 },
+    { name: "Tea", numOfItems: 7 },
+    { name: "Milk", numOfItems: 4 },
+    { name: "Other cold drinks", numOfItems: 3 },
+    { name: "Bakery", numOfItems: 6 },
+    { name: "Breakfast", numOfItems: 3 },
+    { name: "Lunch", numOfItems: 5 },
+    { name: "Beans and stuff", numOfItems: 1 },
+  ];
+
   return (
     <>
-      <div>
-        <section className="min-h-52" id="coffee-&-espresso">
-          <h3>Coffee & Espresso</h3>
-          <Link href={"/menu/vanilla-latte"}>Vanilla Latte</Link>
-        </section>
-        <section className="min-h-52" id="blended">
-          <h3>Blended</h3>
-        </section>
-        <section className="min-h-52" id="sandwiches">
-          <h3>Sandwiches</h3>
-        </section>
-        <section className="min-h-52" id="other-items">
-          <h3>Other Items</h3>
-        </section>
-        <section className="min-h-52" id="other-items">
-          <h3>Other Items</h3>
-        </section>
-        <section className="min-h-52" id="other-items">
-          <h3>Other Items</h3>
-        </section>
-        <section className="min-h-52" id="other-items">
-          <h3>Other Items</h3>
-        </section>
-        <section className="min-h-52" id="other-items">
-          <h3>Other Items</h3>
-        </section>
-        <section className="min-h-52" id="other-items">
-          <h3>Other Items</h3>
-        </section>
+      <div className="flex flex-col gap-8">
+        {menu.map((submenu) => (
+          <MenuCategorySection
+            heading={submenu.name}
+            items={submenu.numOfItems}
+          />
+        ))}
       </div>
     </>
   );

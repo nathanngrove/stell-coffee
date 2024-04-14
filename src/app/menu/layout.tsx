@@ -14,24 +14,22 @@ function Layout({ children }: { children: React.ReactNode }) {
     <MenuProvider>
       <LocationProvider>
         <CartProvider>
-          <div className="grid place-items-center">
-            <div className="menu-layout-grid w-9/12">
-              <div className="sticky top-0 bg-white">
-                <Link href="/menu">
-                  <Logo />
-                </Link>
-              </div>
-              <div className="flex items-center justify-end gap-8">
-                <SelectALocation />
-                <Bag />
-              </div>
-              <div className="h-full">
-                <div className="sticky top-[12rem] flex flex-col gap-24">
-                  <Menu />
-                  <Footer />
-                </div>
-              </div>
-              <div>{children}</div>
+          <header className="grid w-full grid-cols-2 place-items-center pb-4 pt-4">
+            <Link href="/menu" className="place-self-start">
+              <Logo />
+            </Link>
+            <div className="flex flex-grow gap-4 justify-self-end">
+              <SelectALocation />
+              <Bag />
+            </div>
+          </header>
+          <div className="flex">
+            <div className="mb-4 flex w-full gap-4">
+              <aside>
+                <Menu />
+              </aside>
+              <div className="h-full w-[2px] bg-stone-100"></div>
+              <main className="w-full">{children}</main>
             </div>
           </div>
         </CartProvider>

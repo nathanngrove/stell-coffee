@@ -1,5 +1,5 @@
 function Copyright() {
-  return <div>&copy; 2021, Stell Coffee & Tea</div>;
+  return <div className="text-white">&copy; 2021, Stell Coffee & Tea</div>;
 }
 
 export default Copyright;

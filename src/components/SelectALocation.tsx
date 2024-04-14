@@ -5,7 +5,7 @@ import LocationSelectionCard from "./LocationSelectionCard";
 import { useLocation } from "~/context/LocationContextProvider";
 
 function SelectALocation() {
-  const { location } = useLocation();
+  const { selectedLocation } = useLocation();
   const [isSelecting, setIsSelecting] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ function SelectALocation() {
     >
       <div className="relative flex items-center gap-1">
         <img src="./location.svg" alt="" />
-        <div>{location}</div>
+        <div>{selectedLocation.shortName}</div>
         <img src="./arrow_down.svg" alt="" />
       </div>
       {isSelecting ? (

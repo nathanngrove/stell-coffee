@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
+import Footer from "~/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,7 +22,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>{children}</body>
+      <body
+        className={`font-sans ${inter.variable} grid h-full w-full place-items-center`}
+      >
+        <div className="grid w-8/12 place-items-center">
+          <div className="w-full">{children}</div>
+        </div>
+        <footer className="h-full w-full bg-orange-550">
+          <div className="grid w-8/12 place-items-center p-4">
+            <Footer />
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }

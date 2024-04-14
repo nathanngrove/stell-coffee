@@ -2,14 +2,21 @@
 
 import React, { useState, useContext } from "react";
 
+export type Location = {
+  longName: string;
+  shortName: string;
+};
+
 type LocationContextObject = {
-  location: string;
-  setLocation: React.Dispatch<React.SetStateAction<string>>;
+  selectedLocation: Location;
+  setSelectedLocation: React.Dispatch<React.SetStateAction<Location>>;
+  allLocations: Array<Location>;
 };
 
 const LocationContext = React.createContext<LocationContextObject>({
-  location: "",
-  setLocation: () => {},
+  selectedLocation: { longName: "", shortName: "" },
+  setSelectedLocation: () => {},
+  allLocations: [],
 });
 
 export function useLocation() {
@@ -21,11 +28,20 @@ type LocationProviderProps = {
 };
 
 const LocationProvider = ({ children }: LocationProviderProps) => {
-  const [location, setLocation] = useState<string>("No location selected");
+  const [selectedLocation, setSelectedLocation] = useState<Location>({
+    longName: "No location selected",
+    shortName: "Not selected",
+  });
+
+  const allLocations: Array<Location> = [
+    { longName: "1580 Barton Rd. Suite A", shortName: "Barton Rd." },
+    { longName: "1453 Ford St. Unit 103", shortName: "Ford St." },
+  ];
 
   const locationObject = {
-    location,
-    setLocation,
+    selectedLocation,
+    setSelectedLocation,
+    allLocations,
   };
 
   return (
